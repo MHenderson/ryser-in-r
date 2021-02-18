@@ -49,10 +49,13 @@ R %>%
   add_rows(7:19) %>%
   ggplot(aes(column, row)) +
   geom_tile(aes(fill = symbol)) +
-  geom_text(aes(label = symbol), size = 5, colour = "white") +
+  #geom_text(aes(label = symbol), size = 5, colour = "white") +
   scale_y_reverse() +
   coord_fixed() +
   theme_void() +
   theme(
     legend.position  = "none",
   )
+
+ggsave("19x19_ryser.png", width = 3, height = 3)
+
