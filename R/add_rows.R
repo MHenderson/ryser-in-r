@@ -16,7 +16,7 @@
 #' @export
 #'
 #' @examples
-add_rows <- function(R, rows) {
+add_rows <- function(R, rows, strategy = next_row_matching) {
 
   # we assume that the dimension equals
   # the number of columns
@@ -24,14 +24,7 @@ add_rows <- function(R, rows) {
 
   for (i in rows) {
 
-    R <- R %>%
-      bind_rows(
-        tibble(
-          row = rep(i, l_order),
-          column = 1:l_order,
-          symbol = next_row(R, l_order)
-        )
-      )
+    R <- strategy(R, i, l_order)
 
   }
 

@@ -16,7 +16,7 @@
 #' @export
 #'
 #' @examples
-next_row <- function(R, l_order) {
+next_row_matching <- function(R, i, l_order) {
   bg <- to_tidygraph(R, l_order)
 
   m <- max_bipartite_match(bg)
@@ -37,5 +37,13 @@ next_row <- function(R, l_order) {
     filter(matching)
 
   EE <- ends(mg, E(mg))
-  return(as.numeric(gsub("s", "", EE[,2])))
+
+  R %>%
+    bind_rows(
+      tibble(
+        row = rep(i, l_order),
+        column = 1:l_order,
+        symbol = as.numeric(gsub("s", "", EE[,2]))
+      )
+    )
 }
