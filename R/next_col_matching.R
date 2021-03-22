@@ -1,4 +1,8 @@
-next_col <- function(R, l_order, n_rows, n_cols) {
+next_col_matching <- function(R, i, l_order) {
+
+  n_rows <- max(R$row)
+  n_cols <- max(R$column)
+
   bg <- to_tidygraph_2(R, l_order, n_rows, n_cols)
 
   m <- max_bipartite_match(bg)
@@ -20,5 +24,14 @@ next_col <- function(R, l_order, n_rows, n_cols) {
     filter(matching)
 
   EE <- ends(mg, E(mg))
-  return(as.numeric(gsub("s", "", EE[, 2])))
+
+  R %>%
+    bind_rows(
+      tibble(
+        column = rep(i, n_rows),
+        row = 1:n_rows,
+        symbol = as.numeric(gsub("s", "", EE[, 2]))
+      )
+    )
+
 }
