@@ -18,7 +18,7 @@ to_tidygraph <- function(R, l_order = 3) {
   column_vertices <- paste0("c", 1:l_order)
   symbol_vertices <- paste0("s", 1:l_order)
 
-  l_nodes <- tibble(
+  l_nodes <- tibble::tibble(
     name = c(column_vertices, symbol_vertices),
     type = c(rep(TRUE, l_order), rep(FALSE, l_order))
   )
@@ -26,7 +26,8 @@ to_tidygraph <- function(R, l_order = 3) {
   ## EDGE DATA FRAME
   f <- function(i) return(edge_tbl(R, i, l_order))
 
-  l_edges <- map_df(1:l_order, f)
+  l_edges <- purrr::map_df(1:l_order, f)
 
-  tbl_graph(nodes = l_nodes, edges = l_edges)
+  tidygraph::tbl_graph(nodes = l_nodes, edges = l_edges)
+
 }
