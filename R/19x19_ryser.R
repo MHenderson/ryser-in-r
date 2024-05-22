@@ -1,8 +1,6 @@
 library(dplyr)
 library(ggplot2)
 library(here)
-library(igraph)
-library(tidygraph)
 library(tidyr)
 
 source(here("R", "add_cols.R"))
