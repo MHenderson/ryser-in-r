@@ -6,7 +6,14 @@ library(purrr)
 library(tidygraph)
 library(tidyr)
 
-list.files("R", full.names = TRUE) |> walk(source)
+source(here("R", "add_cols.R"))
+source(here("R", "add_rows.R"))
+source(here("R", "edge_tbl.R"))
+source(here("R", "edge_tbl_2.R"))
+source(here("R", "next_col_matching.R"))
+source(here("R", "next_row_matching.R"))
+source(here("R", "to_tidygraph.R"))
+source(here("R", "to_tidygraph_2.R"))
 
 expand_grid(row = 1:3, column = 1:4) |>
   mutate(symbol = c(1, 3, 4, 2, 5, 6, 1, 3, 4, 2, 3, 5)) |>
