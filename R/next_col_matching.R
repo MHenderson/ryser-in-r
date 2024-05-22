@@ -23,7 +23,7 @@ next_col_matching <- function(R, i, l_order) {
     tidygraph::activate(edges) |>
     dplyr::filter(matching)
 
-  EE <- igraph::ends(mg, E(mg))
+  EE <- igraph::ends(mg, igraph::E(mg))
 
   R |>
     dplyr::bind_rows(
