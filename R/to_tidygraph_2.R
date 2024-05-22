@@ -20,7 +20,7 @@ to_tidygraph_2 <- function(R, l_order, n_rows, n_cols) {
   G <- tidygraph::tbl_graph(nodes = l_nodes, edges = l_edges)
 
   d_edges <- tibble::tibble(
-      to = rep(symbol_vertices, as.numeric(l_order - n_cols - degree(G, symbol_vertices))),
+      to = rep(symbol_vertices, as.numeric(l_order - n_cols - igraph::degree(G, symbol_vertices))),
     from = rep(dummy_vertices, each = l_order - n_cols)
   )
 
