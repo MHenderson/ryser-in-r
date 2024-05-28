@@ -16,7 +16,7 @@
 #' @export
 #'
 #' @examples
-add_rows <- function(R, rows, strategy = next_row_matching) {
+add_rows <- function(R, rows, strategy = keedwell:::next_row_matching) {
 
   # we assume that the dimension equals
   # the number of columns

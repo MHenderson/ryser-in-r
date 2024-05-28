@@ -246,14 +246,14 @@
     },
     "keedwell": {
       "Package": "keedwell",
-      "Version": "0.1.1.9000",
+      "Version": "0.1.1.9001",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "keedwell",
       "RemoteUsername": "MHenderson",
-      "RemoteRef": "20-add-functions-from-ryser-in-r-project",
-      "RemoteSha": "9c041e8713a96e9c56fa5306aa1e3af7f73f47a0",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "e5e89bf9d898b015c6d085f9d2bfa2caf30a851a",
       "Requirements": [
         "dplyr",
         "igraph",
@@ -262,7 +262,7 @@
         "tidygraph",
         "tidyr"
       ],
-      "Hash": "b46df35987096ea6970c1519f7e10dbc"
+      "Hash": "34fbe93d3bbc8a107a8895e349666625"
     },
     "labeling": {
       "Package": "labeling",
